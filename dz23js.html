@@ -21,17 +21,62 @@
         {name: 'juice', amount: 1.5, status: 'is not bought'},
     ]
     //1.1
-    console.log(purchaseAr.sort((x, y) => {
-        if ((x.status.includes('not') === true) && (y.status.includes('not') === false)) {
-            return -1
+    let sort = purchaseAr => {
+        purchaseAr.sort((x, y) => {
+            if ((x.status.includes('not') === true) && (y.status.includes('not') === false)) {
+                return -1
+            }
+            if ((x.status.includes('not') === false) && (y.status.includes('not') === true)) {
+                return 1
+            }
+            return 0;
+        })
+        return purchaseAr
+    }
+
+    console.log(sort(purchaseAr))
+
+    //1.2
+    let newProduct = {name: 'money', amount: 100, status: 'is bought'}
+    let addNewProduct = (purchaseAr, newProduct) => {
+        debugger;
+        let a = purchaseAr.filter(x => x.name === newProduct.name).map(x => x.name)
+        if (a[0] === newProduct.name) {
+            purchaseAr.filter(x => x.name === newProduct.name).map(x => x.amount += newProduct.amount)
+        } else {
+            purchaseAr.push(newProduct)
         }
-        if ((x.status.includes('not') === false) && (y.status.includes('not') === true)) {
-            return 1
-        }
-        return 0;
-    }))
+        return purchaseAr
+    }
+    console.log(addNewProduct(purchaseAr, newProduct))
+
+    //1.3
+    let someProduct = 'milk'
+    let tickProduct = purchaseAr => {
+        purchaseAr.filter(x => x.name === someProduct).map(x => x.status = 'is bought')
+        return purchaseAr
+    }
+    console.log(tickProduct(purchaseAr))
 </script>
-
-
+<div>
+<script>
+    //Задание 2
+    let receiptAr = [
+        {name: 'clothes', amount: 3, price: 2570},
+        {name: 'book', amount: 1, price: 899},
+        {name: 'door', amount: 1, price: 4750},
+        {name: 'laptop', amount: 1, price: 50999},
+        {name: 'food', amount: 50, price: 13290},
+        {name: 'ball', amount: 2, price: 1099},
+        {name: 'cream', amount: 10, price: 3574},
+        {name: 'chair', amount: 15, price: 7890},
+        {name: 'powerbank', amount: 2, price: 1790},
+        {name: 'pencil', amount: 10, price: 207}
+    ]
+    let printReceipt = receiptAr => {
+       
+    }
+</script>
+</div>
 </body>
 </html>
