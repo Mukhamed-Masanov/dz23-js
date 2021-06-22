@@ -11,72 +11,220 @@
 
 <script>
     //Задание 1
-    let purchaseAr = [
-        {name: 'milk', amount: 2, status: 'is not bought'},
-        {name: 'bread', amount: 1, status: 'is bought'},
-        {name: 'eggs', amount: 10, status: 'is not bought'},
-        {name: 'cheese', amount: 2, status: 'is bought'},
-        {name: 'oil', amount: 3, status: 'is  bought'},
-        {name: 'fruits', amount: 4, status: 'is  bought'},
-        {name: 'juice', amount: 1.5, status: 'is not bought'},
-    ]
-    //1.1
-    let sort = purchaseAr => {
-        purchaseAr.sort((x, y) => {
-            if ((x.status.includes('not') === true) && (y.status.includes('not') === false)) {
-                return -1
-            }
-            if ((x.status.includes('not') === false) && (y.status.includes('not') === true)) {
-                return 1
-            }
-            return 0;
-        })
-        return purchaseAr
-    }
+    <!--    let purchaseAr = [-->
+    <!--        {name: 'milk', amount: 2, status: 'is not bought'},-->
+    <!--        {name: 'bread', amount: 1, status: 'is bought'},-->
+    <!--        {name: 'eggs', amount: 10, status: 'is not bought'},-->
+    <!--        {name: 'cheese', amount: 2, status: 'is bought'},-->
+    <!--        {name: 'oil', amount: 3, status: 'is  bought'},-->
+    <!--        {name: 'fruits', amount: 4, status: 'is  bought'},-->
+    <!--        {name: 'juice', amount: 1.5, status: 'is not bought'},-->
+    <!--    ]-->
+    //1.1-->
+    <!--    let sort = purchaseAr => {-->
+    <!--        purchaseAr.sort((x, y) => {-->
+    <!--            if ((x.status.includes('not') === true) && (y.status.includes('not') === false)) {-->
+    <!--                return -1-->
+    <!--            }-->
+    <!--            if ((x.status.includes('not') === false) && (y.status.includes('not') === true)) {-->
+    <!--                return 1-->
+    <!--            }-->
+    <!--            return 0;-->
+    <!--        })-->
+    <!--        return purchaseAr-->
+    <!--    }-->
 
-    console.log(sort(purchaseAr))
+    <!--    console.log(sort(purchaseAr))-->
 
-    //1.2
-    let newProduct = {name: 'money', amount: 100, status: 'is bought'}
-    let addNewProduct = (purchaseAr, newProduct) => {
-        debugger;
-        let a = purchaseAr.filter(x => x.name === newProduct.name).map(x => x.name)
-        if (a[0] === newProduct.name) {
-            purchaseAr.filter(x => x.name === newProduct.name).map(x => x.amount += newProduct.amount)
-        } else {
-            purchaseAr.push(newProduct)
-        }
-        return purchaseAr
-    }
-    console.log(addNewProduct(purchaseAr, newProduct))
+    //1.2-->
+    <!--    let newProduct = {name: 'money', amount: 100, status: 'is bought'}-->
+    <!--    let addNewProduct = (purchaseAr, newProduct) => {-->
+    <!--        debugger;-->
+    <!--        let a = purchaseAr.filter(x => x.name === newProduct.name).map(x => x.name)-->
+    <!--        if (a[0] === newProduct.name) {-->
+    <!--            purchaseAr.filter(x => x.name === newProduct.name).map(x => x.amount += newProduct.amount)-->
+    <!--        } else {-->
+    <!--            purchaseAr.push(newProduct)-->
+    <!--        }-->
+    <!--        return purchaseAr-->
+    <!--    }-->
+    <!--    console.log(addNewProduct(purchaseAr, newProduct))-->
 
-    //1.3
-    let someProduct = 'milk'
-    let tickProduct = purchaseAr => {
-        purchaseAr.filter(x => x.name === someProduct).map(x => x.status = 'is bought')
-        return purchaseAr
-    }
-    console.log(tickProduct(purchaseAr))
+    //1.3-->
+    <!--    let someProduct = 'milk'-->
+    <!--    let tickProduct = purchaseAr => {-->
+    <!--        purchaseAr.filter(x => x.name === someProduct).map(x => x.status = 'is bought')-->
+    <!--        return purchaseAr-->
+    <!--    }-->
+    <!--    console.log(tickProduct(purchaseAr))-->
 </script>
-<div>
+<p class='receipt'></p>
+<p class="sum"></p>
+<p class="expensive_item"></p>
+<p class="average_cost"></p>
 <script>
     //Задание 2
-    let receiptAr = [
-        {name: 'clothes', amount: 3, price: 2570},
-        {name: 'book', amount: 1, price: 899},
-        {name: 'door', amount: 1, price: 4750},
-        {name: 'laptop', amount: 1, price: 50999},
-        {name: 'food', amount: 50, price: 13290},
-        {name: 'ball', amount: 2, price: 1099},
-        {name: 'cream', amount: 10, price: 3574},
-        {name: 'chair', amount: 15, price: 7890},
-        {name: 'powerbank', amount: 2, price: 1790},
-        {name: 'pencil', amount: 10, price: 207}
-    ]
-    let printReceipt = receiptAr => {
-       
-    }
+    // const receipt = document.querySelector('.receipt')
+    // const sum = document.querySelector('.sum')
+    // const expensive_item = document.querySelector('.expensive_item')
+    // const averageCost = document.querySelector('.average_cost')
+    // let receiptAr = [
+    //     {name: 'clothes', amount: 3, price: 790},
+    //     {name: 'book', amount: 1, price: 899},
+    //     {name: 'door', amount: 1, price: 4750},
+    //     {name: 'laptop', amount: 1, price: 50999},
+    //     {name: 'food', amount: 50, price: 120},
+    //     {name: 'ball', amount: 2, price: 750},
+    //     {name: ' hand cream', amount: 10, price: 350},
+    //     {name: 'chair', amount: 5, price: 1250},
+    //     {name: 'mouse', amount: 2, price: 1099},
+    //     {name: 'pencil', amount: 10, price: 55}
+    // ]
+    // //2.1
+    // let printReceipt = (receiptAr, receipt) => {
+    //     for (const receiptArElement in receiptAr) {
+    //         receipt.innerHTML += `Name: ${receiptAr[receiptArElement].name} ,amount :${receiptAr[receiptArElement].amount}
+    //     ,price: ${receiptAr[receiptArElement].price} <br>`
+    //     }
+    //     return receipt;
+    // }
+    // printReceipt(receiptAr, receipt)
+    // //2.2
+    // let countSum = (receiptAr, sum) => sum.innerHTML = ` TOTAL: ${receiptAr.map(x => x.price * x.amount).reduce((a, b) => a + b)}₽`
+    // countSum(receiptAr, sum)
+    // //2.3
+    // let getMostExpensive = (receiptAr, expensive_item) => expensive_item.innerHTML =
+    //     `The most expensive item is ${receiptAr.slice().sort((a, b) => a.price - b.price).pop().name}
+    //     = ${receiptAr.slice().sort((a, b) => a.price - b.price).pop().price}₽`;
+    // getMostExpensive(receiptAr, expensive_item)
+    // //2.4
+    // let getAverageCost = (receiptAr, averageCost) => averageCost.innerHTML = `The average cost of one item =
+    // ${Math.trunc(receiptAr.map(x => x.price).reduce((a, b) => a + b) / receiptAr.map(x => x.amount).reduce((a, b) => a + b))}₽`
+    // getAverageCost(receiptAr, averageCost)
 </script>
-</div>
+<div id='main'></div>
+
+<script>
+    //Задание 3
+    //     const someText = prompt('Enter some text')
+    //     let stylesAr = [
+    //         {styleName: 'color', value: '#0d71ac'},
+    //         {styleName: 'font-size', value: '25px'},
+    //         {styleName: 'font-weight', value: 'bolder'},
+    //         {styleName: 'font-style', value: 'italic'},
+    //         {styleName: 'text-decoration', value: 'underline'},
+    //         {styleName: 'text-transform', value: 'capitalize'},
+    //     ]
+    //     let displayPar = (someText, stylesAr) =>{
+    //         const p = document.createElement('p')
+    //         const main = document.querySelector('#main')
+    //         for (const key in stylesAr) {
+    //             p.style.cssText = `${stylesAr[key].styleName} : ${stylesAr[key].value}`
+    //         }
+    //         p.innerHTML = someText
+    //          main.appendChild(p);
+    //     }
+    // displayPar(someText , stylesAr)
+</script>
+<ol class="audience_list"></ol>
+<ol class="exactAudience"></ol>
+<ol class="suitAudience"></ol>
+<ol class="sorted_list"></ol>
+<ol class="sorted_by_al"></ol>
+<script>
+    // Задание 4
+    let audienceAr = [
+        {name: 'Economy audience №1', places: 12, faculty: 'Economic'},
+        {name: 'Physic audience', places: 19, faculty: 'Physical'},
+        {name: 'Economy audience №2', places: 20, faculty: 'Economic'},
+        {name: 'Law audience №1', places: 12, faculty: 'Legal'},
+        {name: 'Language audience №1', places: 10, faculty: 'Linguistic'},
+        {name: 'Language audience №2', places: 14, faculty: 'Linguistic'},
+        {name: 'Law audience №1', places: 13, faculty: 'Legal'},
+        {name: 'History audience', places: 11, faculty: 'Historical'},
+        {name: 'Economy audience №3', places: 17, faculty: 'Economic'},
+        {name: 'Chemistry audience', places: 18, faculty: 'Chemical'}
+    ]
+    //4.1
+    const audience = document.querySelector('.audience_list')
+    let li = ''
+    let allAudience = (audienceAr, li) => {
+        for (let i = 0; i < audienceAr.length; i++) {
+            li = document.createElement('li')
+            li.innerHTML += `${audienceAr[i].name}`
+            audience.appendChild(li);
+        }
+    }
+    allAudience(audienceAr, li)
+    //4.2
+    const body = document.querySelector('body')
+    const exactAudience = document.querySelector('.exactAudience')
+    let faculty = prompt('Please enter your faculty')
+    let getExactAudience = (audienceAr, faculty) => {
+        let numLi = ''
+        for (let i = 0; i < audienceAr.length; i++) {
+            if (audienceAr[i].faculty.toLowerCase() === faculty.toLowerCase()) {
+                numLi = document.createElement('li')
+                numLi.innerHTML += `${audienceAr[i].name}`
+                exactAudience.appendChild(numLi);
+            }
+        }
+        if (numLi === '') {
+            exactAudience.remove()
+            numLi = document.createElement('p')
+            numLi.innerHTML = 'Sorry , we dont have audience for this faculty.'
+            body.insertBefore(numLi, audience.nextSibling)
+        }
+    }
+    getExactAudience(audienceAr, faculty)
+
+    //4.3
+    const suitAudience = document.querySelector('.suitAudience')
+    let newGroup = {name: 'Group №1', amount: 20, fac: 'economic'}
+    let pickSuitAud = (audienceAr, newGroup) => {
+        let suitLi = ''
+        for (let i = 0; i < audienceAr.length; i++) {
+            if (audienceAr[i].places >= newGroup.amount && audienceAr[i].faculty.toLowerCase() === newGroup.fac.toLowerCase()) {
+                suitLi = document.createElement('li')
+                suitLi.innerHTML += `${audienceAr[i].name} is available`
+                suitAudience.appendChild(suitLi);
+            }
+        }
+        if (suitLi === '') {
+            suitAudience.remove()
+            let p = document.createElement('p')
+            p.innerHTML = 'No suitable audience was found'
+            body.insertBefore(p, exactAudience.nextSibling)
+        }
+    }
+    pickSuitAud(audienceAr, newGroup)
+
+    //4.4
+    const sorted_list = document.querySelector('.sorted_list')
+    let sortByPlaces = (audienceAr) => {
+        let li = ''
+        audienceAr.sort((a, b) => b.places - a.places)
+        for (let i = 0; i < audienceAr.length; i++) {
+            li = document.createElement('li')
+            li.innerHTML = `Audience name is ${audienceAr[i].name} , can hold ${audienceAr[i].places} students , for
+             ${audienceAr[i].faculty} faculty`;
+            sorted_list.appendChild(li);
+        }
+    }
+    sortByPlaces(audienceAr)
+    //4.5
+    const sortByAl = document.querySelector('.sorted_by_al')
+    let sortByAlp = audienceAr => {
+        let li = ''
+        audienceAr.sort((a ,b ) => a.name.localeCompare(b.name))
+        for (let i = 0; i < audienceAr.length; i++) {
+            li = document.createElement('li')
+            li.innerHTML = `Audiences name ${audienceAr[i].name} , capacity ${audienceAr[i].places} ,
+            for ${audienceAr[i].faculty} faculty`
+            sortByAl.appendChild(li)
+        }
+    }
+    console.log(sortByAlp(audienceAr));
+</script>
 </body>
 </html>
